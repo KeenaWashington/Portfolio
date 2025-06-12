@@ -52,6 +52,12 @@
             color: white;
             text-decoration: none;
             border-radius: 6px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        
+        a.button: hover {
+            background-color: #1e40af; /* darker blue on hover */
+            transform: scale(1.05);    /* slight zoom effect */
         }
 
         footer {
@@ -60,25 +66,20 @@
             padding: 1rem;
             color: #888;
         }
-        highlight: hover {
-            background-color: #bbdcf9;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, box-shadow 0.3s; 
-        }
     </style>
 </head>
 
 <body>
     <header>
         <h1>Keena Washington</h1>
-        <p>Software Engineer | App Developer | Cloud Practitioner</p>
+        <p>Software Engineer | App Developer | Cloud Practitioner | Data Management | </p>
     </header>
 
     <main>
         <section>
             <h2 class="project-title"> Class Tracker App</h2>
             <p>A tool designed to help students monitor and manage their academic progress throughout a term.</p>
-            <a class="button" class="highlight" href="Download/Class%20Tracker%20App.apk" download>Download APK</a>
+            <a class="button" href="Download/Class%20Tracker%20App.apk" download>Download APK</a>
         </section>
 
         <section>
