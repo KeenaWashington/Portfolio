@@ -55,9 +55,10 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
         
-        a.button: hover {
-            background-color: #1e40af;
-            transform: scale(1.05);  
+        a.button: hover,
+        a.button: focus {
+            background-color: #1e40af; /* darker blue on hover */
+            transform: scale(1.05);
         }
 
         footer {
