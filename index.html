@@ -148,7 +148,7 @@
 
     <section>
         <h2 class="project-title">Contacts</h2>
-        <p>Accepting calls between <span id="timeRange"></span> in your current time zone</p>
+        <p>Accepting calls between <span id="timeRange"></span></p>
         <a class="button" href="https://www.linkedin.com/in/keena-washington-093067213/" target="_blank">Linkedin</a>
         <a class="button" href="mailto:wkeena74@gmail.com" target="_blank">Email</a>
         <a class="button" href="tel:6789493690" target="_blank">Call</a>
@@ -170,15 +170,14 @@
         }
     });
     function convertAndDisplayTimeRange() {
-        // Create Date objects for 9AM and 5PM EST
+
         const date = new Date();
-        date.setHours(9, 0, 0); // 9 AM
+        date.setHours(9, 0, 0);
         const startTime = new Date(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
 
-        date.setHours(17, 0, 0); // 5 PM
+        date.setHours(17, 0, 0);
         const endTime = new Date(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
 
-        // Convert to visitor's local time
         const localStartTime = startTime.toLocaleTimeString('en-US', {
             hour: 'numeric',
             minute: '2-digit',
@@ -190,11 +189,10 @@
             hour12: true
         });
 
-        // Get visitor's timezone abbreviation
         const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
         document.getElementById('timeRange').innerHTML =
-            `${localStartTime} - ${localEndTime} (9AM-5PM EST)`;
+            `${localStartTime} - ${localEndTime} in your current time zone (9AM-5PM EST)`;
     }
 
     convertAndDisplayTimeRange();
