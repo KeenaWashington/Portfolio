@@ -14,59 +14,60 @@
         body {
             font-family: OCR A Std, monospace;
             background: #333447;
-            color: #333;
+            color: #333447;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scrollbar-color: #a3a7f7 #333447;
+        }
+        .text {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .text.banner {
+            position: fixed;
+            height: 150px;
+            background-color: #a3a7f7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            font-size: 0.2rem;
+            transition: font-size 0.3s ease;
         }
 
         #hero {
             height: 100vh;
+            position: initial;
             background-color: #a3a7f7;
-            color: black;
+            margin-bottom: 2rem;
+            color: #333447;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 1rem;
-            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 3;
-            transition: height 0.8s ease;
+            border-bottom: 7px solid #333447;
         }
-
+        
         #hero h1 {
             font-size: 3rem;
+            font-family: Arial, sans-serif;
         }
 
         #hero p {
-            padding: 1rem 0;
-            font-size: 0.8rem;
-        }
-
-        #hero.shrink {
-            height: 0;
-            padding: 0.5rem;
-        }
-        #hero.shrink h1 {
-            font-size: 0;
-            transition-delay: 0.6s;
-        }
-        #hero.shrink p {
-            font-size: 0;
-            transition-delay: 0.6s;
-        }
-
-        body::before {
-            content: '';
-            display: block;
-            height: 13vh;
+            margin: 1rem 0 ;
+            font-size: 1.2rem;
         }
 
         main {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 0 1rem;
         }
@@ -77,11 +78,13 @@
             margin-bottom: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
         }
 
         .project-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            font-family: Arial, sans-serif;
         }
 
         a.button {
@@ -93,6 +96,7 @@
             text-decoration: none;
             border-radius: 6px;
             transition: color 0.3s ease;
+            font-size: 0.8rem;
         }
 
         a.button:hover {
@@ -107,15 +111,17 @@
         }
     </style>
 </head>
+
 <body>
-
-<div id="hero">
-    <h1>Keena Washington</h1>
-    <p>Software Engineer | Full-Stack Dev | Cloud Practitioner | Data Manager | UI/UX Designer | Graphic Designer</p>
-</div>
-
-
+    <div id="hero">
+        <text class="text">
+            <h1>Keena Washington</h1>
+            <p>Software Engineering | Full-Stack Development | Graphic Design <br> Cloud Practitioner | Database Specialist <br> UI/UX Design</p>
+        </text>
+    </div>
 <main>
+
+    
     <section>
         <h2 class="project-title">Resume and More</h2>
         <p>Here are downloads for my credentials</p>
@@ -161,14 +167,26 @@
 </footer>
 
 <script>
-    const hero = document.getElementById("hero");
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 20) {
-            hero.classList.add("shrink");
-        } else {
-            hero.classList.remove("shrink");
+
+    // Add this to your existing script
+    window.addEventListener('scroll', () => {
+        const hero = document.getElementById('hero');
+        const textElement = hero.querySelector('text');
+        const heroRect = hero.getBoundingClientRect();
+
+        // Calculate the maximum scroll position within the hero
+        const maxScroll = hero.offsetHeight - textElement.offsetHeight;
+
+        if (heroRect.bottom <= textElement.offsetHeight) {
+            // When hero section is about to exit viewport, make text a banner
+            textElement.classList.add('banner');
+            textElement.style.transform = '';
         }
+        else(textElement.classList.remove('banner'));
+
     });
+
+
     function convertAndDisplayTimeRange() {
 
         const date = new Date();
