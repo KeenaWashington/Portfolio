@@ -57,8 +57,10 @@
         
         /*Banner styles*/
         .text {
+            position: -webkit-sticky;
             position: sticky;
             top: 0;
+            z-index: 999;
             width: 100%;
             background-color: #a3a7f7;
             display: flex;
@@ -102,7 +104,7 @@
             z-index: 3;
         }
         #hero {
-            height: 100vh;
+            height: 100dvh;
             position: initial;
             background-color: #a3a7f7;
             margin-bottom: 2rem;
@@ -162,6 +164,29 @@
             text-align: center;
             padding: 1rem;
             color: #888;
+        }
+
+        /* Mobile-specific media query for sticky header jitter and text size */
+        @media (max-width: 768px) {
+            .text {
+                position: fixed;
+                top: 0;
+            }
+            .text h1 {
+                font-size: 2rem;
+            }
+            .text p {
+                font-size: 0.8rem;
+            }
+            .text.banner h1 {
+                font-size: 1.5rem;
+            }
+            .text.banner p {
+                font-size: 0.5rem;
+            }
+            main {
+                padding-top: 100px;
+            }
         }
     </style>
 </head>
@@ -240,7 +265,7 @@
     notification.style.borderRadius = '5px';
     notification.style.zIndex = '1000';
     notification.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    notification.textContent = '🎉 Congratulations! You got all the rings spinning! You must be bored.';
+    notification.textContent = '🎉 Congratulations!';    
     document.body.appendChild(notification);
 
 
