@@ -312,12 +312,12 @@
         const textElement = hero.querySelector('.text');
         const heroRect = hero.getBoundingClientRect();
 
-        if (heroRect.bottom <= textElement.offsetHeight) {
+        if (heroRect.bottom <= textElement.offsetHeight || textElement.classList.contains('banner')) {
             textElement.classList.add('banner');
         }
         else if (heroRect.bottom > textElement.offsetHeight + 25)
         {
-            textElement.classList.remove('banner');       
+            textElement.classList.remove('banner');
         }
     });
 
