@@ -166,8 +166,7 @@
             padding: 1rem;
             color: #888;
         }
-
-
+        
         @media (max-width: 768px) {
             .text.banner{
                 position: fixed;
@@ -249,7 +248,7 @@
 <script>
     /*Coin spawn and spin animation*/
     const container = document.getElementById('coin-container');
-    const numberOfRings = 15;
+    const numberOfRings = 10;
     const ringSize = 120; 
     const rings = [];
     const spinningRings = new Set();
@@ -258,7 +257,6 @@
     notification.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     notification.target = "_blank";
     notification.rel = "noreferrer";
-    notification.textalign = "center";
     notification.style.display = 'none';
     notification.style.position = 'fixed';
     notification.style.top = '50%';
@@ -270,9 +268,8 @@
     notification.style.borderRadius = '5px';
     notification.style.zIndex = '1000';
     notification.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    notification.textContent = '🎉 Congratulations! Click or tap here for the next level';    
+    notification.textContent = '🎉 Congratulations! Click or tap here for the next level';
     document.body.appendChild(notification);
-
 
     function isOverlapping(newX, newY) {
         for (const ring of rings) {
