@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keena Washington's Portfolio</title>
+    <link rel="icon" type="image" href="Images/favicon.ico">
     <style>
         * {
             margin: 0;
@@ -21,22 +22,72 @@
             scroll-behavior: smooth;
             scrollbar-color: #a3a7f7 #333447;
         }
+        #coin-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            z-index: 2;
+        }
+        /*Coin styles*/
+        .coin-ring {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border: 6px solid #a3a7f7;
+            border-radius: 50%;
+            background-color: transparent;
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease;
+        }
+        
+        .coin-ring.spinning {
+            animation: flip-spin 1s ease-out forwards 4;
+        }
+        .coin-ring.spin-complete {
+            transform: rotateY(1440deg) rotateX(0deg);
+        }
+        @keyframes flip-spin {
+            0%   { transform: rotateY(0deg) rotateX(0deg); }
+            20%  { transform: rotateY(180deg) rotateX(0deg); }
+            40%  { transform: rotateY(360deg) rotateX(0deg); }
+            60%  { transform: rotateY(540deg) rotateX(0deg); }
+            80%  { transform: rotateY(720deg) rotateX(0deg); }
+            100% { transform: rotateY(900deg) rotateX(0deg); }
+        }
+        
+        /*Banner styles*/
         .text {
             position: sticky;
             top: 0;
-            z-index: 2;
             width: 100%;
+            background-color: #a3a7f7;
+        }
+        .text h1{
+            font-size: 4rem;
+            transition: all 0.3s ease;       
+        }
+        .text p{
+            font-size: 0.9rem;
+            transition: all 0.3s ease;       
+        }
+        .text.banner h1{
+            font-size: 2.7rem;
+            transition: all 0.3s ease;
+        }
+        .text.banner p{
+            font-size: 0.6rem;
+            transition: all 0.3s ease;       
         }
 
         .text.banner {
             position: fixed;
-            height: 150px;
+            height: 90px;
+            width: 100%;
+            top: 0;
             background-color: #a3a7f7;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            font-size: 0.2rem;
-            transition: font-size 0.3s ease;
+            transition: all 0.3s ease;
+            z-index: 3;
         }
-
         #hero {
             height: 100vh;
             position: initial;
@@ -51,19 +102,9 @@
             top: 0;
             left: 0;
             width: 100%;
-            border-bottom: 7px solid #333447;
+            z-index: 0;
         }
         
-        #hero h1 {
-            font-size: 3rem;
-            font-family: Arial, sans-serif;
-        }
-
-        #hero p {
-            margin: 1rem 0 ;
-            font-size: 1.2rem;
-        }
-
         main {
             position: relative;
             z-index: 1;
@@ -114,14 +155,15 @@
 
 <body>
     <div id="hero">
-        <text class="text">
+        <div class="text">
             <h1>Keena Washington</h1>
             <p>Software Engineering | Full-Stack Development | Graphic Design <br> Cloud Practitioner | Database Specialist <br> UI/UX Design</p>
-        </text>
+        </div>
     </div>
+    
 <main>
 
-    
+    <div id="coin-container"></div>
     <section>
         <h2 class="project-title">Resume and More</h2>
         <p>Here are downloads for my credentials</p>
@@ -167,26 +209,115 @@
 </footer>
 
 <script>
+    /*Coin spawn and spin animation*/
+    const container = document.getElementById('coin-container');
+    const numberOfRings = 15;
+    const ringSize = 120; 
+    const rings = [];
+    const totalRings = 15;
+    const spinningRings = new Set();
 
-    // Add this to your existing script
+
+    // Create a notification div
+    const notification = document.createElement('div');
+    notification.style.display = 'none';
+    notification.style.position = 'fixed';
+    notification.style.top = '50%';
+    notification.style.left = '50%';
+    notification.style.transform = 'translateX(-50%)';
+    notification.style.backgroundColor = '#a3a7f7';
+    notification.style.color = 'white';
+    notification.style.padding = '15px 30px';
+    notification.style.borderRadius = '5px';
+    notification.style.zIndex = '1000';
+    notification.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+    notification.textContent = '🎉 Congratulations! You got all the rings spinning! You must be bored.';
+    document.body.appendChild(notification);
+
+
+    function isOverlapping(newX, newY) {
+        for (const ring of rings) {
+            const distance = Math.sqrt(
+                Math.pow(newX - ring.x, 2) +
+                Math.pow(newY - ring.y, 2)
+            );
+            if (distance < ringSize * 1.2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function findValidPosition(maxAttempts = 100) {
+        for (let attempt = 0; attempt < maxAttempts; attempt++) {
+            const x = Math.random() * (window.innerWidth - ringSize);
+            const y = Math.random() * (window.innerHeight - ringSize);
+
+            if (!isOverlapping(x, y)) {
+                return { x, y };
+            }
+        }
+        return null; 
+    }
+
+    for (let i = 0; i < numberOfRings; i++) {
+        const position = findValidPosition();
+
+        if (position) {
+            const ring = document.createElement('div');
+            ring.classList.add('coin-ring');
+
+            ring.style.top = `${position.y}px`;
+            ring.style.left = `${position.x}px`;
+            
+                ring.addEventListener('mouseenter', function() {
+                    this.classList.remove('spin-complete');
+                    this.classList.remove('spinning');
+                    void this.offsetWidth;
+                    this.classList.add('spinning');
+                    spinningRings.add(this);
+                    spinningCount = spinningRings.size;
+                        
+                    if (spinningCount === totalRings) {
+                        notification.style.display = 'block';
+                        setTimeout(() => {
+                            notification.style.display = `none`;
+                        }, 5000);
+                    }
+                        
+                    this.addEventListener('animationend', function() {
+                        this.classList.add('spin-complete');
+                        spinningRings.delete(this); // Remove from set when animation ends
+                        spinningCount = spinningRings.size;
+                    }, {once: true});
+            });
+            
+            rings.push({
+                x: position.x,
+                y: position.y
+            });
+
+            container.appendChild(ring);
+        }
+
+    }
+
+    /*Banner*/
     window.addEventListener('scroll', () => {
         const hero = document.getElementById('hero');
-        const textElement = hero.querySelector('text');
+        const textElement = hero.querySelector('.text');
         const heroRect = hero.getBoundingClientRect();
 
-        // Calculate the maximum scroll position within the hero
-        const maxScroll = hero.offsetHeight - textElement.offsetHeight;
-
         if (heroRect.bottom <= textElement.offsetHeight) {
-            // When hero section is about to exit viewport, make text a banner
             textElement.classList.add('banner');
-            textElement.style.transform = '';
         }
-        else(textElement.classList.remove('banner'));
-
+        else if (heroRect.bottom > textElement.offsetHeight + 25)
+        {
+            textElement.classList.remove('banner');       
+        }
     });
 
-
+    /*Time Converter*/
     function convertAndDisplayTimeRange() {
 
         const date = new Date();
