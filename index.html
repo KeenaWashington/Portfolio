@@ -253,7 +253,10 @@
     const rings = [];
     const spinningRings = new Set();
     
-    const notification = document.createElement('div');
+    const notification = document.createElement('a');
+    notification.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    notification.target = "_blank";
+    notification.rel = "noreferrer";
     notification.style.display = 'none';
     notification.style.position = 'fixed';
     notification.style.top = '50%';
@@ -265,7 +268,7 @@
     notification.style.borderRadius = '5px';
     notification.style.zIndex = '1000';
     notification.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    notification.textContent = '🎉 Congratulations!';    
+    notification.textContent = '🎉 Congratulations! Click or tap here for the next level';    
     document.body.appendChild(notification);
 
 
