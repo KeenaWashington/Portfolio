@@ -173,10 +173,10 @@
                 top: 0;
             }
             .text h1 {
-                font-size: 2rem;
+                font-size: 2.7rem;
             }
             .text p {
-                font-size: 0.8rem;
+                font-size: 1.1rem;
             }
             .text.banner h1 {
                 font-size: 1.5rem;
@@ -200,22 +200,22 @@
     </span>
     
 <main>
-    <section>
+    <section id="first">
         <h2 class="project-title">Resume and More</h2>
         <p>Here are downloads for my credentials</p>
-        <a class="button" href="Download/COVER%20LETTER.docx" download>Cover Letter</a>
-        <a class="button" href="Download/Keena%20Washington%20Resume.docx" download>Resume</a>
-        <a class="button" href="Download/Letter%20of%20Recomendation%20from%20PatJohn%20Ashkin.pdf" download>PatJohn Recommendation</a>
-        <a class="button" href="Download/Letter%20of%20Recommendation%20from%20Dani%20Elizabeth.pdf" download>Dani Recommendation</a>
+        <a class="button" href="Download/COVER%20LETTER.pdf" target="_blank" rel="noreferrer">Cover Letter</a>
+        <a class="button" href="Download/Keena%20Washington%20Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="button" href="Download/Letter%20of%20Recomendation%20from%20PatJohn%20Ashkin.pdf" target="_blank" rel="noreferrer">PatJohn Recommendation</a>
+        <a class="button" href="Download/Letter%20of%20Recommendation%20from%20Dani%20Elizabeth.pdf" target="_blank" rel="noreferrer">Dani Recommendation</a>
     </section>
 
     <section>
         <h2 class="project-title">Education</h2>
         <p>Downloads for my school transcript and certifications.</p>
-        <a class="button" href="Download/Transcript_KeenaWashington.pdf" download>Transcript</a>
-        <a class="button" href="Download/AWS%20Certified%20Cloud%20Practitioner.pdf" download>AWS Cert</a>
-        <a class="button" href="Download/ITIL%204%20Cert.pdf" download>ITIL 4 Cert</a>
-        <a class="button" href="Download/Excellence%20Award.pdf" download>Excellence Award</a>
+        <a class="button" href="Download/Transcript_KeenaWashington.pdf" target="_blank" rel="noreferrer">Transcript</a>
+        <a class="button" href="Download/AWS%20Certified%20Cloud%20Practitioner.pdf" target="_blank" rel="noreferrer">AWS Cert</a>
+        <a class="button" href="Download/ITIL%204%20Cert.pdf" target="_blank" rel="noreferrer">ITIL 4 Cert</a>
+        <a class="button" href="Download/Excellence%20Award.pdf" target="_blank" rel="noreferrer">Excellence Award</a>
     </section>
 
     <section>
@@ -344,14 +344,11 @@
         if (heroRect.bottom <= textElement.offsetHeight) {
             textElement.classList.add('banner');
         } 
-        else if (heroRect.top <= textElement.offsetHeight){
+        else if (heroRect.bottom >= textElement.offsetHeight + 100){
             textElement.classList.remove('banner');
         }
     });
-
-
-
-
+    
     /*Time Converter*/
     function convertAndDisplayTimeRange() {
 
