@@ -73,6 +73,7 @@
             background-color: #a3a7f7;
         }
         .text p {
+            font-size: 1.1rem;
             transition: all 0.3s ease;
             width: 100%;
             background-color: #a3a7f7;
@@ -163,17 +164,17 @@
             color: #888;
         }
     </style>
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
-    <div id="hero"></div>
+    <span id="hero">
+        <span class="text">
+            <h1>Keena Washington</h1>
+            <p>Software Engineering | Full-Stack Development | Graphic Design <br> Cloud Practitioner | Database Specialist <br> UI/UX Design</p>
+        </span>
+    </span>
     
 <main>
-
-
     <section>
         <h2 class="project-title">Resume and More</h2>
         <p>Here are downloads for my credentials</p>
@@ -225,11 +226,8 @@
     const numberOfRings = 15;
     const ringSize = 120; 
     const rings = [];
-    const totalRings = 15;
     const spinningRings = new Set();
-
-
-    // Create a notification div
+    
     const notification = document.createElement('div');
     notification.style.display = 'none';
     notification.style.position = 'fixed';
@@ -312,6 +310,19 @@
         }
 
     }
+    /*Banner*/
+    window.addEventListener('scroll', () => {
+        const hero = document.getElementById('hero');
+        const textElement = hero.querySelector('.text');
+        const heroRect = hero.getBoundingClientRect();
+
+        if (heroRect.bottom <= textElement.offsetHeight) {
+            textElement.classList.add('banner');
+        } 
+        else if (heroRect.top <= textElement.offsetHeight){
+            textElement.classList.remove('banner');
+        }
+    });
 
 
 
@@ -344,39 +355,6 @@
     }
 
     convertAndDisplayTimeRange();
-
-</script>
-<script type="text/babel">
-  const { useEffect, useState } = React;
-
-  function Banner() {
-    const [isShrunk, setIsShrunk] = useState(false);
-    const hero = document.getElementById('hero');
-    const heroRect = hero.getBoundingClientRect();
-    const textElement = hero.querySelector('.text');
-
-    useEffect(() => {
-      const handleScroll = () => {
-        setIsShrunk(window.scrollY > (heroRect.height - 95));
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-    return (
-      <div className={`text ${isShrunk ? "banner" : ""}`}>
-        <h1>Keena Washington</h1>
-        <p>
-          Software Engineering | Full-Stack Development | Graphic Design <br />
-          Cloud Practitioner | Database Specialist <br />
-          UI/UX Design
-        </p>
-      </div>
-    );
-  }
-
-  const root = ReactDOM.createRoot(document.getElementById("hero"));
-  root.render(<Banner />);
-</script>
+    </script>
 </body>
 </html>
