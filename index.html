@@ -63,30 +63,27 @@
             background-color: #a3a7f7;
             display: flex;
             flex-direction: column;
-        }
-        .text h1{
-            font-size: 4rem;
             transition: all 0.3s ease;
-            width: 100%;
-            background-color: #a3a7f7;       
         }
-        .text p{
-            font-size: 0.9rem;
+
+        .text h1, .text p {
             transition: all 0.3s ease;
-            width: 100%;
-            background-color: #a3a7f7;      
         }
-        .text.banner h1{
+
+        .text.banner h1 {
             font-size: 2.7rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            background-color: #a3a7f7;
         }
-        .text.banner p{
+
+        .text.banner p {
             font-size: 0.6rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            background-color: #a3a7f7;       
+        }
+
+        .text:not(.banner) h1 {
+            font-size: 4rem;
+        }
+
+        .text:not(.banner) p {
+            font-size: 0.9rem;
         }
 
         .text.banner {
@@ -163,15 +160,13 @@
             color: #888;
         }
     </style>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
-    <div id="hero">
-        <div class="text">
-            <h1>Keena Washington</h1>
-            <p>Software Engineering | Full-Stack Development | Graphic Design <br> Cloud Practitioner | Database Specialist <br> UI/UX Design</p>
-        </div>
-    </div>
+    <div id="hero"></div>
     
 <main>
 
@@ -314,19 +309,7 @@
 
     }
 
-    /*Banner*/
-    window.addEventListener('scroll', () => {
-        const hero = document.getElementById('hero');
-        const textElement = hero.querySelector('.text');
-        const heroRect = hero.getBoundingClientRect();
-        const threshold = 100;
 
-        if (heroRect.bottom <= threshold) {
-            textElement.classList.add('banner');
-        } else {
-            textElement.classList.remove('banner');
-        }
-    });
 
 
     /*Time Converter*/
@@ -358,6 +341,38 @@
 
     convertAndDisplayTimeRange();
 
+</script>
+<script type="text/babel">
+  const { useEffect, useState } = React;
+
+  function Banner() {
+    const [isShrunk, setIsShrunk] = useState(false);
+    const hero = document.getElementById('hero');
+    const heroRect = hero.getBoundingClientRect();
+    const textElement = hero.querySelector('.text');
+
+    useEffect(() => {
+      const handleScroll = () => {
+        setIsShrunk(window.scrollY > (heroRect.height - 95));
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    return (
+      <div className={`text ${isShrunk ? "banner" : ""}`}>
+        <h1>Keena Washington</h1>
+        <p>
+          Software Engineering | Full-Stack Development | Graphic Design <br />
+          Cloud Practitioner | Database Specialist <br />
+          UI/UX Design
+        </p>
+      </div>
+    );
+  }
+
+  const root = ReactDOM.createRoot(document.getElementById("hero"));
+  root.render(<Banner />);
 </script>
 </body>
 </html>
