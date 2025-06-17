@@ -5,204 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Keena Washington's Portfolio</title>
     <link rel="icon" type="image" href="Images/favicon.ico">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: OCR A Std, monospace;
-            background: #333447;
-            color: #333447;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            scrollbar-color: #a3a7f7 #333447;
-        }
-        #coin-container {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            z-index: 2;
-        }
-        /*Coin styles*/
-        .coin-ring {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border: 6px solid #a3a7f7;
-            border-radius: 50%;
-            background-color: transparent;
-            transform-style: preserve-3d;
-            transition: transform 0.6s ease;
-        }
-        
-        .coin-ring.spinning {
-            animation: flip-spin 1s ease-out forwards 4;
-        }
-        .coin-ring.spin-complete {
-            transform: rotateY(1440deg) rotateX(0deg);
-        }
-        @keyframes flip-spin {
-            0%   { transform: rotateY(0deg) rotateX(0deg); }
-            20%  { transform: rotateY(180deg) rotateX(0deg); }
-            40%  { transform: rotateY(360deg) rotateX(0deg); }
-            60%  { transform: rotateY(540deg) rotateX(0deg); }
-            80%  { transform: rotateY(720deg) rotateX(0deg); }
-            100% { transform: rotateY(900deg) rotateX(0deg); }
-        }
-        
-        /*Banner styles*/
-        .text {
-            position: -webkit-sticky;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            width: 100%;
-            background-color: #a3a7f7;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
-        }
-
-        .text h1{
-            font-size: 2.7rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            background-color: #a3a7f7;
-        }
-        .text p {
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            width: 100%;
-            background-color: #a3a7f7;
-        }
-
-        .text.banner h1 {
-            font-size: 1.8rem;
-            width: 100%;
-            background-color: #a3a7f7;
-        }
-
-        .text.banner p {
-            font-size: 0.6rem;
-            width: 100%;
-            background-color: #a3a7f7;
-        }
-
-        .text.banner {
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 90px;
-            width: 100%;
-            background-color: #a3a7f7;
-            top: 0;
-            z-index: 3;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        #hero {
-            height: 100dvh;
-            position: initial;
-            background-color: #a3a7f7;
-            margin-bottom: 2rem;
-            color: #333447;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 0;
-        }
-        
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background-color: #a3a7f7;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            font-size: 1.1rem;
-        }
-
-        .project-title {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            font-family: Arial, sans-serif;
-        }
-
-        a.button {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.6rem 1.2rem;
-            background-color: #333447;
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: color 0.3s ease;
-            font-size: 0.8rem;
-        }
-
-        a.button:hover {
-            color: #a3a7f7;
-            cursor: pointer;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1rem;
-            color: #888;
-        }
-        
-        @media (max-width: 768px) {
-            .text.banner{
-                position: fixed;
-                top: 0;
-            }
-            .text h1 {
-                font-size: 2.7rem;
-            }
-            .text p {
-                font-size: 1.1rem;
-            }
-            .text.banner h1 {
-                font-size: 1.5rem;
-            }
-            .text.banner p {
-                font-size: 0.5rem;
-            }
-            main {
-                padding-top: 100px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="src/style.css">
 </head>
-
 <body>
-    <span id="hero">
+<span id="hero">
         <span class="text">
             <h1>Keena Washington</h1>
             <p>Software Engineering | Full-Stack Development | Graphic Design <br> Cloud Practitioner | Database Specialist <br> UI/UX Design</p>
         </span>
     </span>
-    
+
 <main>
     <section id="first">
         <h2 class="project-title">Resume and More</h2>
-        <p>Here are downloads for my credentials</p>
+        <p>Links to my coverletter, resume, and recommendation letters</p>
         <a class="button" href="Download/COVER%20LETTER.pdf" target="_blank" rel="noreferrer">Cover Letter</a>
         <a class="button" href="Download/Keena%20Washington%20Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         <a class="button" href="Download/Letter%20of%20Recomendation%20from%20PatJohn%20Ashkin.pdf" target="_blank" rel="noreferrer">PatJohn Recommendation</a>
@@ -211,7 +27,7 @@
 
     <section>
         <h2 class="project-title">Education</h2>
-        <p>Downloads for my school transcript and certifications.</p>
+        <p>Links to my school transcript, certifications, and awards.</p>
         <a class="button" href="Download/Transcript_KeenaWashington.pdf" target="_blank" rel="noreferrer">Transcript</a>
         <a class="button" href="Download/AWS%20Certified%20Cloud%20Practitioner.pdf" target="_blank" rel="noreferrer">AWS Cert</a>
         <a class="button" href="Download/ITIL%204%20Cert.pdf" target="_blank" rel="noreferrer">ITIL 4 Cert</a>
@@ -220,13 +36,13 @@
 
     <section>
         <h2 class="project-title">Class Tracker App</h2>
-        <p>This is an Android application I designed for my Bachelor's Capstone. It is designed for Android 13.</p>
-        <a class="button" href="Download/Class%20Tracker%20App.apk" download>Download APK</a>
+        <p>This is an Android application I designed for my Bachelor's in Software Engineering. Along with the wireframe, class design and user guide.</p>
+        <a class="button" href="Download/Class%20Tracker%20App.zip" download>Download .zip</a>
     </section>
 
     <section>
         <h2 class="project-title">Travel Site (Under Dev)</h2>
-        <p>Website made for a class assignment. Designed for planning a trip to Kentucky</p>
+        <p>Bare bones website made for a class assignment. Originally designed as a "travel style" site</p>
         <a class="button" href="https://keenawashington.github.io/Travel-Site/" target="_blank">View Site</a>
     </section>
 
@@ -245,140 +61,6 @@
     &copy; 2025 Keena Washington. All rights reserved.
 </footer>
 
-<script>
-    /*Coin spawn and spin animation*/
-    const container = document.getElementById('coin-container');
-    const numberOfRings = 10;
-    const ringSize = 120; 
-    const rings = [];
-    const spinningRings = new Set();
-    
-    const notification = document.createElement('a');
-    notification.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-    notification.target = "_blank";
-    notification.rel = "noreferrer";
-    notification.style.display = 'none';
-    notification.style.position = 'fixed';
-    notification.style.top = '50%';
-    notification.style.left = '50%';
-    notification.style.transform = 'translateX(-50%)';
-    notification.style.backgroundColor = '#a3a7f7';
-    notification.style.color = '#333447';
-    notification.style.padding = '15px 30px';
-    notification.style.borderRadius = '5px';
-    notification.style.zIndex = '1000';
-    notification.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-    notification.textContent = '🎉 Congratulations! Click or tap here for the next level';
-    document.body.appendChild(notification);
-
-    function isOverlapping(newX, newY) {
-        for (const ring of rings) {
-            const distance = Math.sqrt(
-                Math.pow(newX - ring.x, 2) +
-                Math.pow(newY - ring.y, 2)
-            );
-            if (distance < ringSize * 1.2) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    function findValidPosition(maxAttempts = 100) {
-        for (let attempt = 0; attempt < maxAttempts; attempt++) {
-            const x = Math.random() * (window.innerWidth - ringSize);
-            const y = Math.random() * (window.innerHeight - ringSize);
-
-            if (!isOverlapping(x, y)) {
-                return { x, y };
-            }
-        }
-        return null; 
-    }
-
-    for (let i = 0; i < numberOfRings; i++) {
-        const position = findValidPosition();
-
-        if (position) {
-            const ring = document.createElement('div');
-            ring.classList.add('coin-ring');
-
-            ring.style.top = `${position.y}px`;
-            ring.style.left = `${position.x}px`;
-            
-                ring.addEventListener('mouseenter', function() {
-                    this.classList.remove('spin-complete');
-                    this.classList.remove('spinning');
-                    void this.offsetWidth;
-                    this.classList.add('spinning');
-                    spinningRings.add(this);
-                    spinningCount = spinningRings.size;
-                        
-                    if (spinningCount === rings.length) {
-                        notification.style.display = 'block';
-                        setTimeout(() => {
-                            notification.style.display = `none`;
-                        }, 5000);
-                    }
-                        
-                    this.addEventListener('animationend', function() {
-                        this.classList.add('spin-complete');
-                        spinningRings.delete(this);
-                        spinningCount = spinningRings.size;
-                    }, {once: true});
-            });
-            
-            rings.push({
-                x: position.x,
-                y: position.y
-            });
-
-            container.appendChild(ring);
-        }
-
-    }
-    /*Banner*/
-    window.addEventListener('scroll', () => {
-        const hero = document.getElementById('hero');
-        const textElement = hero.querySelector('.text');
-        const heroRect = hero.getBoundingClientRect();
-
-        if (heroRect.bottom <= textElement.offsetHeight) {
-            textElement.classList.add('banner');
-        } 
-        else if (heroRect.bottom >= textElement.offsetHeight + 100){
-            textElement.classList.remove('banner');
-        }
-    });
-    
-    /*Time Converter*/
-    function convertAndDisplayTimeRange() {
-
-        const date = new Date();
-        date.setHours(9, 0, 0);
-        const startTime = new Date(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-
-        date.setHours(17, 0, 0);
-        const endTime = new Date(date.toLocaleString('en-US', { timeZone: 'America/New_York' }));
-
-        const localStartTime = startTime.toLocaleTimeString('en-US', {
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-        });
-        const localEndTime = endTime.toLocaleTimeString('en-US', {
-            hour: 'numeric',
-            minute: '2-digit',
-            hour12: true
-        });
-
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-        document.getElementById('timeRange').innerHTML =
-            `${localStartTime} - ${localEndTime} in your current time zone (9AM-5PM EST)`;
-    }
-
-    convertAndDisplayTimeRange();
-    </script>
+<script src="src/script.js"></script>
 </body>
 </html>
