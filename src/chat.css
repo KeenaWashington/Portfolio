@@ -1,82 +1,10 @@
-:root{
-  --bg:#f6f7fb;
-  --panel:#ffffff;
-  --muted:#6b7280;
-  --line:#e5e7eb;
-  --ink:#0f172a;
-  --accent:#111827;
-  --bubble-user:#e8ecff;
-  --bubble-bot:#f3f4f6;
-  --radius:12px;
-  --shadow:0 12px 30px rgba(0,0,0,.08);
-}
-
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#0f1117; --panel:#121521; --line:#20263a; --ink:#f5f7ff;
-    --muted:#9aa3b2; --bubble-user:#1f2a44; --bubble-bot:#171b2b; --accent:#e5e7eb;
-    --shadow:0 10px 24px rgba(0,0,0,.5);
-  }
-}
-
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
-
-.page{min-height:100%;display:grid;place-items:center;padding:16px}
-.card{
-  width:100%; max-width:860px; background:var(--panel); border:1px solid var(--line);
-  border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;
-}
-
-.kb-header{padding:14px;border-bottom:1px solid var(--line);background:linear-gradient(180deg, rgba(0,0,0,.02), transparent)}
-.kb-id{display:flex;align-items:center;gap:12px}
-.kb-avatar{
-  width:36px;height:36px;border-radius:50%;display:grid;place-items:center;
-  background:var(--accent); color:#fff; font-weight:700;
-}
-.kb-meta h1{margin:0;font-size:16px}
-.kb-status{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px}
-.kb-status .dot{width:8px;height:8px;border-radius:999px;background:#10b981;display:inline-block}
-
-.msgs{height:56vh;min-height:380px;max-height:70vh;overflow:auto;padding:14px;background:var(--panel)}
-.bubble{
-  max-width:78%; padding:10px 12px; border-radius:12px; margin:8px 0; word-wrap:break-word; white-space:pre-wrap;
-  box-shadow:0 1px 0 rgba(0,0,0,.04);
-}
-.user{margin-left:auto;background:var(--bubble-user)}
-.bot{background:var(--bubble-bot)}
-
-.chipbar{
-  display:flex; gap:8px; flex-wrap:wrap; padding:8px 12px; border-top:1px solid var(--line);
-  background:linear-gradient(180deg,transparent,rgba(0,0,0,.03));
-}
-.chip{
-  border:1px solid var(--line); background:transparent; color:var(--ink);
-  padding:8px 10px; border-radius:999px; cursor:pointer; font-weight:600;
-}
-.chip:hover{background:rgba(0,0,0,.04)}
-
-.typing{display:none; padding:6px 14px; color:var(--muted)}
-.typing .dot{
-  display:inline-block; width:6px; height:6px; margin-right:4px; background:var(--muted); border-radius:999px;
-  animation:blink 1.2s infinite ease-in-out;
-}
-.typing .dot:nth-child(2){animation-delay:.15s}
-.typing .dot:nth-child(3){animation-delay:.3s}
-@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
-
-.composer{
-  display:flex; gap:10px; padding:12px; border-top:1px solid var(--line);
-  background:var(--panel); position:sticky; bottom:0;
-  padding-bottom:calc(12px + env(safe-area-inset-bottom));
-}
-#keenabot-input{
-  flex:1; min-height:40px; max-height:160px; resize:none;
-  padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:transparent; color:inherit;
-}
-#keenabot-input::placeholder{color:var(--muted)}
-#keenabot-send{
-  padding:10px 14px; border:0; border-radius:10px; background:var(--accent); color:#fff; font-weight:700; cursor:pointer;
-}
-#keenabot-send:disabled{opacity:.6; cursor:not-allowed}
+/* src/chat.css */
+/* Shared chat styles */
+.msgs { flex: 1; overflow: auto; padding: 12px; background: #fff; }
+.kb-bubble { max-width: 80%; padding: 10px 12px; border-radius: 10px; margin: 6px 0; word-wrap: break-word; }
+.kb-user { margin-left: auto; background: #eef2ff; }
+.kb-bot { background: #f5f5f5; }
+#keenabot-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #eee; background: #fafafa; }
+#keenabot-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font: 14px system-ui, sans-serif; }
+#keenabot-send { padding: 10px 14px; border: 0; border-radius: 8px; background: #111; color: #fff; font-weight: 600; cursor: pointer; }
+#keenabot-typing { color: #666; font-size: 12px; padding: 0 12px 8px; display: none; }
