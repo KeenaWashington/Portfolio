@@ -5,30 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KeenaBot</title>
   <link rel="stylesheet" href="./src/chat.css" />
-  <style>
-    /* make the chat fill the page nicely */
-    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-    .page { min-height: 100%; display: grid; place-items: center; padding: 16px; background: #fafafa; }
-    .card { width: 100%; max-width: 800px; background: #fff; border: 1px solid #e6e6e6; border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,.08); overflow: hidden; }
-    .card h1 { margin: 0; padding: 14px; border-bottom: 1px solid #eee; background: #f7f7f7; font-size: 18px; }
-    .kb-wrap { height: 520px; display: flex; flex-direction: column; }
-    #keenabot-msgs { height: auto; }
-  </style>
 </head>
 <body>
-  <div class="page">
-    <div class="card">
-      <h1>Chat with KeenaBot</h1>
-      <div class="kb-wrap">
-        <div id="keenabot-msgs" class="msgs"></div>
-        <div id="keenabot-typing">KeenaBot is typing…</div>
-        <form id="keenabot-form">
-          <input id="keenabot-input" type="text" placeholder="Ask about Keena…" autocomplete="off" />
-          <button id="keenabot-send" type="submit">Send</button>
-        </form>
+  <main class="page">
+    <section class="card" aria-label="Chat with KeenaBot">
+      <header class="kb-header">
+        <div class="kb-id">
+          <div class="kb-avatar" aria-hidden="true">K</div>
+          <div class="kb-meta">
+            <h1>KeenaBot</h1>
+            <div class="kb-status">
+              <span class="dot"></span> online
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div id="keenabot-msgs" class="msgs" role="log" aria-live="polite" aria-label="Messages"></div>
+
+      <div class="chipbar" aria-label="Suggestions">
+        <button class="chip" data-q="Tell me about your experience">Experience</button>
+        <button class="chip" data-q="What are your strongest skills?">Skills</button>
+        <button class="chip" data-q="Where did you study?">Education</button>
+        <button class="chip" data-q="What are your hobbies?">Personal</button>
       </div>
-    </div>
-  </div>
+
+      <div id="keenabot-typing" class="typing" aria-live="polite">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+
+      <form id="keenabot-form" class="composer" autocomplete="off">
+        <textarea id="keenabot-input" rows="1" placeholder="Ask about Keena…" aria-label="Message"></textarea>
+        <button id="keenabot-send" type="submit" aria-label="Send message">Send</button>
+      </form>
+    </section>
+  </main>
 
   <script src="./src/chat-page.js"></script>
 </body>
