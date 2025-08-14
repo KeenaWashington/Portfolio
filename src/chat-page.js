@@ -1,6 +1,6 @@
 // src/chat-page.js
 (function () {
-  const API_URL = "https://keena-bot.vercel.app/api/chat"; // Vercel API
+  const API_URL = "https://keena-bot.vercel.app"; // Vercel API
   const history = []; // rolling memory so “tell me more” works
 
   const msgs = document.getElementById("keenabot-msgs");
