@@ -35,6 +35,7 @@
 
     addBubble("user", message);
     input.value = ""; input.focus();
+    updateCounter();
     send.disabled = true; setTyping(true);
 
     try {
