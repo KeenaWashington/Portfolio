@@ -1,14 +1,24 @@
 // src/chat-page.js
 (function () {
-  const API_URL = "https://keena-bot.vercel.app/api/chat"; // Vercel API
-  const history = []; // rolling memory so “tell me more” works
+  const API_URL = "https://keena-bot.vercel.app/api/chat";
+  const history = [];
 
   const msgs = document.getElementById("keenabot-msgs");
   const typing = document.getElementById("keenabot-typing");
   const form = document.getElementById("keenabot-form");
   const input = document.getElementById("keenabot-input");
   const send = document.getElementById("keenabot-send");
-
+/*Character Count*/
+  const count = document.getElementById("charCount");
+  const MAX = 300;
+  function charLen(str) { return Array.from(str || "").length; }
+  function updateCounter() {
+    const len = charLen(input.value);
+    count.textContent = `${len} / ${MAX}`;
+    send.disabled = len === 0 || len > MAX;
+  }
+  input.addEventListener("input", updateCounter);
+  updateCounter();
   function addBubble(role, text) {
     const d = document.createElement("div");
     d.className = `kb-bubble ${role === "user" ? "kb-user" : "kb-bot"}`;

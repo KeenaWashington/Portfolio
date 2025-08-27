@@ -4,6 +4,7 @@ const numberOfRings = 10;
 const ringSize = 120;
 const rings = [];
 const spinningRings = new Set();
+let spinningCount = 0;
 
 const notification = document.createElement('a');
 notification.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
@@ -76,7 +77,6 @@ for (let i = 0; i < numberOfRings; i++) {
             this.addEventListener('animationend', function() {
                 this.classList.add('spin-complete');
                 spinningRings.delete(this);
-                spinningCount = spinningRings.size;
             }, {once: true});
         });
 
@@ -98,10 +98,11 @@ window.addEventListener('scroll', () => {
     if (heroRect.bottom <= textElement.offsetHeight) {
         textElement.classList.add('banner');
     }
-    else if (heroRect.bottom >= textElement.offsetHeight + 100){
+    else if (heroRect.bottom >= textElement.offsetHeight){
         textElement.classList.remove('banner');
     }
 });
+
 
 /*Time Converter*/
 function convertAndDisplayTimeRange() {
@@ -123,8 +124,6 @@ function convertAndDisplayTimeRange() {
         minute: '2-digit',
         hour12: true
     });
-
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
     document.getElementById('timeRange').innerHTML =
         `${localStartTime} - ${localEndTime} in your current time zone (9AM-5PM EST)`;
