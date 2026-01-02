@@ -7,7 +7,7 @@ const spinningRings = new Set();
 let spinningCount = 0;
 
 const notification = document.createElement('a');
-notification.href = "https://KeenaWashington.github.io/RickRoll/index.html";
+notification.href = "https://KeenaWashington.github.io/rrlevelup/index.html";
 notification.target = "_blank";
 notification.rel = "noreferrer";
 notification.style.display = 'none';
