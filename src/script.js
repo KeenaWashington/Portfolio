@@ -7,7 +7,7 @@ const spinningRings = new Set();
 let spinningCount = 0;
 
 const notification = document.createElement('a');
-notification.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+notification.href = "https://KeenaWashington.github.io/RickRoll/index.html";
 notification.target = "_blank";
 notification.rel = "noreferrer";
 notification.style.display = 'none';
