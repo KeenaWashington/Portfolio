@@ -1,6 +1,6 @@
 // src/chat-page.js
 (function () {
-  const API_URL = "keena-bot.vercel.app.chat";
+  const API_URL = "https://keena-p4f7hvshg-shaggysans-projects.vercel.app";
   const history = [];
 
   const msgs = document.getElementById("keenabot-msgs");
