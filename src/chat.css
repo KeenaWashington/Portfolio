@@ -2,7 +2,6 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    background: #a3a7f7;
   }
   /* Full-page layout */
   .page {
