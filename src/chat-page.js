@@ -22,6 +22,7 @@
   function addBubble(role, text) {
     const d = document.createElement("div");
     d.className = `kb-bubble ${role === "user" ? "kb-user" : "kb-bot"}`;
+    d.style.whiteSpace = "pre-wrap";
     d.textContent = text;
     msgs.appendChild(d);
     msgs.scrollTop = msgs.scrollHeight;
