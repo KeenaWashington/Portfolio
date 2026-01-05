@@ -28,7 +28,6 @@ html, body {
   .card h1 {
     margin: 0;
     padding: 14px 16px;
-    border-bottom: 1px solid #eee;
     background: #a3a7f7;
     font-size: 18px;
   }
@@ -74,8 +73,7 @@ html, body {
 #keenabot-form { 
     display: flex; 
     gap: 8px; 
-    padding: 10px; 
-    border-top: 1px solid #eee; 
+    padding: 10px;
     background: #a3a7f7;
 }
 
