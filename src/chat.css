@@ -31,6 +31,9 @@ html, body {
     background: #a3a7f7;
     font-size: 18px;
     color: #333447;
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
   /* Chat area fills remaining space under the header */
   .kb-wrap {
@@ -78,6 +81,9 @@ html, body {
     gap: 8px; 
     padding: 10px;
     background: #a3a7f7;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
 }
 
 #keenabot-input { 
@@ -85,7 +91,6 @@ html, body {
     width: 100%;
     height: 100%;
     padding-right: 72px;
-    border: 1px solid #ddd; 
     border-radius: 8px; 
     font: 14px system-ui, sans-serif; 
 }
