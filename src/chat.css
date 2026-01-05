@@ -94,12 +94,13 @@ html, body {
     border: 0; 
     border-radius: 8px; 
     background: #333447;
-    color: #a3a7f7;
+    color: #fff;
     font-weight: 600; 
     cursor: pointer; 
 }
 #keenabot-typing { 
-    color: #a3a7f7;
+    color: #fff;
+    background: #333447;
     font-size: 12px; 
     padding: 0 12px 8px; 
     display: none; 
