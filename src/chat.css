@@ -6,7 +6,6 @@
 }
 
 .kb-bubble { 
-  display: inline-block;
   max-width: 75%;
   padding: 10px 14px;
   border-radius: 16px;
@@ -16,14 +15,14 @@
 }
 
 .kb-user { 
-    align-self: flex-end;
+    align-self: flex-start;
     margin-left: auto; 
     background: #a3a7f7;
     border-bottom-right-radius: 4px;
 }
 
 .kb-bot { 
-    align-self: flex-start;
+    align-self: flex-end;
     background: #f3f3f3;
     border-bottom-left-radius: 4px;
 }
