@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    background: #f3f3f3;
+    background: #a3a7f7;
   }
   /* Full-page layout */
   .page {
@@ -11,7 +11,7 @@ html, body {
     display: flex;
     flex-direction: column;
     padding: 0;
-    background: #f3f3f3;
+    background: #a3a7f7;
   }
   /* Card becomes the full page */
   .card {
@@ -76,7 +76,7 @@ html, body {
     gap: 8px; 
     padding: 10px; 
     border-top: 1px solid #eee; 
-    background: #fff;
+    background: #a3a7f7;
 }
 
 #keenabot-input { 
@@ -94,12 +94,12 @@ html, body {
     border: 0; 
     border-radius: 8px; 
     background: #333447;
-    color: #fff; 
+    color: #a3a7f7;
     font-weight: 600; 
     cursor: pointer; 
 }
 #keenabot-typing { 
-    color: #666; 
+    color: #a3a7f7;
     font-size: 12px; 
     padding: 0 12px 8px; 
     display: none; 
