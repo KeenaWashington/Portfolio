@@ -1,11 +1,12 @@
-.msgs { 
-    flex: 1; 
-    overflow: auto; 
-    padding: 12px; 
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+#keenabot-msgs {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .kb-bubble { 
