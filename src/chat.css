@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #333447;
   }
   /* Full-page layout */
   .page {
@@ -39,12 +40,13 @@ html, body {
     min-height: 0; /* IMPORTANT so the msgs area can scroll */
   }
 #keenabot-msgs {
-  flex: 1;
-  overflow: auto;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+    flex: 1;
+    overflow: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #333447;
 }
 
 .kb-bubble { 
