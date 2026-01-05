@@ -61,12 +61,6 @@
     display: none; 
 }
 
-#keenabot-msgs {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 #charCount {
     position: absolute;
     right: 10px;
