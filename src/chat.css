@@ -2,7 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-    background: #333447;
+    background: #f3f3f3;
   }
   /* Full-page layout */
   .page {
@@ -11,7 +11,7 @@ html, body {
     display: flex;
     flex-direction: column;
     padding: 0;
-    background: #333447;
+    background: #f3f3f3;
   }
   /* Card becomes the full page */
   .card {
@@ -29,7 +29,7 @@ html, body {
     margin: 0;
     padding: 14px 16px;
     border-bottom: 1px solid #eee;
-    background: #f7f7f7;
+    background: #a3a7f7;
     font-size: 18px;
   }
   /* Chat area fills remaining space under the header */
@@ -76,7 +76,7 @@ html, body {
     gap: 8px; 
     padding: 10px; 
     border-top: 1px solid #eee; 
-    background: #fafafa; 
+    background: #fff;
 }
 
 #keenabot-input { 
@@ -93,7 +93,7 @@ html, body {
     padding: 10px 14px; 
     border: 0; 
     border-radius: 8px; 
-    background: #111; 
+    background: #333447;
     color: #fff; 
     font-weight: 600; 
     cursor: pointer; 
