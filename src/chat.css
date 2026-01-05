@@ -30,6 +30,7 @@ html, body {
     padding: 14px 16px;
     background: #a3a7f7;
     font-size: 18px;
+    color: #333447;
   }
   /* Chat area fills remaining space under the header */
   .kb-wrap {
@@ -62,12 +63,14 @@ html, body {
     align-self: flex-end;
     background: #f3f3f3;
     border-bottom-right-radius: 4px;
+    color: #333447;
 }
 
 .kb-bot {
     align-self: flex-start;
     background: #a3a7f7;
     border-bottom-left-radius: 4px;
+    color: #333447;
 }
 
 #keenabot-form { 
